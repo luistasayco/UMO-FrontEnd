@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url_api : 'http://localhost:54026/api/',
+  url_api_seguridad : 'http://localhost:55320/api/',
+
+  estacion: 'Web-UMO'
 };
 
 /*

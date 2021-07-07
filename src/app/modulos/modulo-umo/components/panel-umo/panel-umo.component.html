@@ -1,0 +1,87 @@
+<div class="card card-w-title">
+    <h1><strong>{{titulo}}</strong></h1>
+
+    <!-- Filtros -->
+    <p-panel header="Opción de busqueda de {{titulo}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
+        <form [formGroup]="formularioBusqueda">
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-2">
+                    <label class="label-custom">Fecha: </label>
+                    <p-calendar placeholder="Seleccionar Fecha" [showButtonBar]="true" [locale]="lenguageService.es" dateFormat="dd/mm/yy" [showIcon]="true" formControlName="fecha"></p-calendar>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <label class="label-custom">Estado: </label>
+                    <p-dropdown class="ui dropdown-item-text" [options]="listEstado" formControlName="estado" placeholder="Seleccionar Estado" optionLabel="label" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <label class="label-custom">Origen: </label>
+                    <p-dropdown class="ui dropdown-item-text" [options]="listOrigen" formControlName="origen" placeholder="Seleccionar Origen" optionLabel="label" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <button pButton type="button" label="{{globalConstants.cBuscar}}" icon="{{globalConstants.icoBuscar}}" class="sba-button btn btn-block"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <button pButton type="button" label="{{globalConstants.cNuevo}}" icon="{{globalConstants.icoNuevo}}" class="sba-button btn btn-block"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <app-btn-salir [isMargenTop]="true"></app-btn-salir>
+                </div>
+            </div>
+        </form>
+
+    </p-panel>
+
+    <!-- Grilla de Datos     -->
+    <p-panel header="Lista de {{titulo}}">
+
+        <p-table [value]="listModelo" [columns]="columnas" [paginator]="true" [rows]="globalConstants.sizePage" dataKey="codventa" autoLayout="true" [responsive]="true">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                <tr>
+                    <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <span class="ui-column-title">{{col.header}}</span>
+                        <span *ngSwitchCase="'estado'"><app-label-estado [isEstado]="rowData.estado"></app-label-estado></span>
+                        <span *ngSwitchDefault>{{ rowData[col.field] }}</span>
+                    </td>
+                    <td class="action-td">
+                        <button pButton icon="{{globalConstants.icoAlert}}" class="ui-button-warning" (click)="goRegistrarFaltante()"></button>
+                    </td>
+                    <!-- <td class="action-td">
+                        <button pButton icon="{{globalConstants.icoView}}" class="ui-button-secondary" (click)="goRegistroPreparacion()"></button>
+                    </td> -->
+                    <td class="action-td">
+                        <button pButton icon="{{globalConstants.icoImprimir}}" class="ui-button-secondary"></button>
+                    </td>
+                    <!-- <td class="action-td">
+                        <button pButton icon="{{globalConstants.icoEditar}}" class="ui-button-success" (click)="goPreRegistro()"></button>
+                    </td> -->
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-panel>
+</div>
+
+<p-dialog header="OA: 028415 - RAMIREZ SOTO MAYKI KEVIN HELI" *ngIf="isHabilitarPreRegistro" [(visible)]="isHabilitarPreRegistro" [modal]="true" [closable]="false" [autoZIndex]>
+    <div class="ui-g ui-fluid">
+        <app-umo-registrar></app-umo-registrar>
+    </div>
+</p-dialog>
+
+<p-dialog header="OA: 028415 - RAMIREZ SOTO MAYKI KEVIN HELI" *ngIf="isHabilitarRegistrarPreparacion" [(visible)]="isHabilitarRegistrarPreparacion" [modal]="true" [closable]="false" [autoZIndex]>
+    <div class="ui-g ui-fluid">
+        <app-umo-registrar></app-umo-registrar>
+    </div>
+</p-dialog>
+
+<p-dialog header="OA: 028415 - RAMIREZ SOTO MAYKI KEVIN HELI" *ngIf="isHabilitarRegistrarFaltante" [(visible)]="isHabilitarRegistrarFaltante" [modal]="true" [closable]="false" [autoZIndex] [style]="{width: '60vw'}">
+    <div class="ui-g ui-fluid">
+        <app-panel-faltante></app-panel-faltante>
+    </div>
+</p-dialog>

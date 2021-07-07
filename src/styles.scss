@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+.sba-button {
+    margin-top: 1.2em !important;
+}
+
+@mixin label-estado {
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 10px;
+}
+
+.estado_anulado {
+    @include label-estado();
+    background: red;
+}
+
+.estado_registrado {
+    @include label-estado();
+    background: orange;
+}
+
+.estado_preparado {
+    @include label-estado();
+    background: blue;
+}
+
+.estado_incompleto {
+    @include label-estado();
+    background: yellow;
+}
+
+.estado_pendiente {
+    @include label-estado();
+    background: green;
+}

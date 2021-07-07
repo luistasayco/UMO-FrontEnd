@@ -1,0 +1,18 @@
+{
+    "data": [{
+            "item": "ON000001",
+            "descripcion": "MABTHERA (RITUXIMAB)",
+            "cantidad": 3.00
+        },
+        {
+            "item": "BI000002",
+            "descripcion": "KEYTRUDA (PEMBROLIZUMAB)",
+            "cantidad": 3.00
+        },
+        {
+            "item": "ON000003",
+            "descripcion": "IPILIMUMAB",
+            "cantidad": 3.00
+        }
+    ]
+}

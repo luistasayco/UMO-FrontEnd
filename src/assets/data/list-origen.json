@@ -1,0 +1,11 @@
+{
+    "data": [{
+            "codigo": "00001",
+            "descripcion": "INTERNO"
+        },
+        {
+            "codigo": "00002",
+            "descripcion": "EXTERNO"
+        }
+    ]
+}

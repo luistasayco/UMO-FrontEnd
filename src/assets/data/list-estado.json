@@ -1,0 +1,23 @@
+{
+    "data": [{
+            "codigo": "00001",
+            "descripcion": "PENDIENTE"
+        },
+        {
+            "codigo": "00002",
+            "descripcion": "REGISTRADO"
+        },
+        {
+            "codigo": "00003",
+            "descripcion": "PREPARADO"
+        },
+        {
+            "codigo": "00004",
+            "descripcion": "ANULADO"
+        },
+        {
+            "codigo": "00005",
+            "descripcion": "INCOMPLETO"
+        }
+    ]
+}

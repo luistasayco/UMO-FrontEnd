@@ -1,0 +1,191 @@
+<p-card>
+    <div class="ui-g ui-fluid">
+        <form [formGroup]="formularioCabecera">
+            <div class="ui-g-12 ui-md-9">
+                <label class="label-custom">Clínica: </label>
+                <input type="number" formControlName="clinica" pInputText placeholder="Clínica">
+            </div>
+            <!-- <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Creatinina: </label>
+                <input type="number" formControlName="creatinina" pInputText placeholder="Creatinina">
+            </div> -->
+            <!-- <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Depuración Creatinina: </label>
+                <input type="number" formControlName="depuracioncreatinina" pInputText placeholder="Depuración Creatinina">
+            </div> -->
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Nota Salida: </label>
+                <input type="number" formControlName="depuracioncreatinina" pInputText placeholder="Nota Salida" (keyup.enter)="goRegistrarMedicamentoNotaSalida()">
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Paciente: </label>
+                <input type="number" formControlName="paciente" pInputText placeholder="Paciente" (keyup.enter)="goRegistrarPacienteNuevo()">
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Diagnostico: </label>
+                <input type="number" formControlName="diagnostico" pInputText placeholder="Diagnostico">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Talla: </label>
+                <input type="number" formControlName="talla" pInputText placeholder="Talla">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Peso: </label>
+                <input type="number" formControlName="peso" pInputText placeholder="Peso">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Superficie Corporal: </label>
+                <input type="number" formControlName="superficiecorporal" pInputText placeholder="Superficie Corporal">
+            </div>
+            <div class="ui-g-12 ui-md-5">
+                <label class="label-custom">Médico Tratante: </label>
+                <input type="number" formControlName="medico" pInputText placeholder="Médico Tratante" (keyup.enter)="goRegistrarMedicoNuevo()">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Estado: </label>
+                <input type="number" formControlName="estado" pInputText placeholder="Estado">
+            </div>
+            <div class="ui-g-12 ui-md-5">
+                <label class="label-custom">Esquema: </label>
+                <input type="number" formControlName="esquema" pInputText placeholder="Esquema">
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Usuario: </label>
+                <input type="number" formControlName="usuarioregistro" pInputText placeholder="Usuario">
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Usuario Preparación: </label>
+                <input type="number" formControlName="usuariopreparado" pInputText placeholder="Usuario Preparación">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Usuario Ult. Modif.: </label>
+                <input type="number" formControlName="usuarioultmodif" pInputText placeholder="Usuario Ult. Modif.">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Hora Inicio: </label>
+                <input type="number" formControlName="horainicio" pInputText placeholder="Hora Inicio">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Hora Fin: </label>
+                <input type="number" formControlName="horafin" pInputText placeholder="Hora Fin">
+            </div>
+
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Registro: </label>
+                <input type="number" formControlName="fecharegistro" pInputText placeholder="Registro">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Fecha Registro: </label>
+                <input type="number" formControlName="fechapreparado" pInputText placeholder="Fecha Registro">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Fecha Ult. Modif.: </label>
+                <input type="number" formControlName="fechaultmodif" pInputText placeholder="Fecha Ult. Modif.">
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <label class="label-custom">Motivo: </label>
+                <input type="text" formControlName="motivo" pInputText placeholder="Motivo">
+            </div>
+
+            <div class="ui-g-12 ui-md-10">
+                <p-table [value]="listModelo" [columns]="columnas" [paginator]="true" [rows]="globalConstants.sizePage" dataKey="codventa" autoLayout="true" [responsive]="true">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                {{col.header}}
+                            </th>
+                            <th colspan="4">Acciones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                        <tr>
+                            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                                <span class="ui-column-title">{{col.header}}</span>
+                                <span *ngSwitchDefault>{{ rowData[col.field] }}</span>
+                            </td>
+                            <td class="action-td">
+                                <button pButton icon="{{globalConstants.icoEliminar}}" class="ui-button-danger"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <div class="ui-g-12 ui-md-1">
+                <button pButton type="button" label="Listar Residuos" icon="{{globalConstants.icoView}}" (click)="goListarResiduos()"></button>
+            </div>
+
+            <div class="ui-g-12 ui-md-1">
+                <button pButton type="button" label="Listar Items" icon="{{globalConstants.icoNuevo}}" (click)="goListarItems()"></button>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Observaciones Usuario Registro: </label>
+                <textarea [rows]="5" pInputTextarea autoResize="autoResize" formControlName="observacionregistro" placeholder="Observaciones Usuario Registro"></textarea>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+                <label class="label-custom">Observaciones Usuario Preparación: </label>
+                <textarea [rows]="5" pInputTextarea autoResize="autoResize" formControlName="observacionpreparado" placeholder="Observaciones Usuario Preparación"></textarea>
+            </div>
+
+            <div class="ui-g-12 ui-md-6">
+                <p-table [value]="listModeloHistorial" [columns]="columnasHistorial" [paginator]="true" [rows]="globalConstants.sizePage" dataKey="codventa" autoLayout="true" [responsive]="true">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                {{col.header}}
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                        <tr>
+                            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                                <span class="ui-column-title">{{col.header}}</span>
+                                <span *ngSwitchDefault>{{ rowData[col.field] }}</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <div class="ui-g-12 ui-md-6">
+                <button pButton type="button" label="{{globalConstants.cGrabar}}" icon="{{globalConstants.icoGrabar}}" class="sba-button btn btn-block"></button>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <button pButton type="button" label="{{globalConstants.cCancelar}}" icon="{{globalConstants.icoCancelar}}" class="sba-button btn btn-block ui-button-secondary"></button>
+            </div>
+        </form>
+
+
+    </div>
+
+    <p-dialog header="MAESTRO DE ITEMS" *ngIf="isHabilitarItems" [(visible)]="isHabilitarItems" [modal]="true" [closable]="false" [autoZIndex] [style]="{width: '60vw'}">
+        <div class="ui-g ui-fluid">
+            <app-panel-items></app-panel-items>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="LISTA DE RESIDUOS REGISTRADOS - UMO" *ngIf="isHabilitarResiduos" [(visible)]="isHabilitarResiduos" [modal]="true" [closable]="false" [autoZIndex]>
+        <div class="ui-g ui-fluid">
+            <app-panel-residuos></app-panel-residuos>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="REGISTRO: REGISTRO DE NUEVO PACIENTE" *ngIf="isHabilitarPacienteNuevo" [(visible)]="isHabilitarPacienteNuevo" [modal]="true" [closable]="false" [autoZIndex] [style]="{width: '60vw'}">
+        <div class="ui-g ui-fluid">
+            <app-panel-paciente></app-panel-paciente>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="REGISTRO: REGISTRO DE NUEVO MEDICO TRATANTE" *ngIf="isHabilitarMedicoNuevo" [(visible)]="isHabilitarMedicoNuevo" [modal]="true" [closable]="false" [autoZIndex] [style]="{width: '60vw'}">
+        <div class="ui-g ui-fluid">
+            <app-panel-medico></app-panel-medico>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="CARGAR MEDICAMENTOS: NOTA SALIDA" *ngIf="isHabilitarMedicamentoNotaSalida" [(visible)]="isHabilitarMedicamentoNotaSalida" [modal]="true" [closable]="false" [autoZIndex]>
+        <div class="ui-g ui-fluid">
+            <app-panel-medicamento-nota-salida></app-panel-medicamento-nota-salida>
+        </div>
+    </p-dialog>
+</p-card>

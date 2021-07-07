@@ -1,0 +1,36 @@
+{
+    "data": [{
+            "a": "N",
+            "estado": "SIN DESPACHAR",
+            "medicamento": "CARBOPLATINO",
+            "cantidad": 1.00,
+            "dosis": "",
+            "dosisreal": "",
+            "solucion": "",
+            "estabilidad": "",
+            "via": "ENDOVENOSO"
+        },
+        {
+            "a": "N",
+            "estado": "SIN DESPACHAR",
+            "medicamento": "OXALIPLATINA",
+            "cantidad": 1.00,
+            "dosis": "",
+            "dosisreal": "",
+            "solucion": "",
+            "estabilidad": "",
+            "via": "ENDOVENOSO"
+        },
+        {
+            "a": "N",
+            "estado": "SIN DESPACHAR",
+            "medicamento": "ZOLODEX",
+            "cantidad": 1.00,
+            "dosis": "",
+            "dosisreal": "",
+            "solucion": "",
+            "estabilidad": "",
+            "via": "ENDOVENOSO"
+        }
+    ]
+}

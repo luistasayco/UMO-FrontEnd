@@ -1,0 +1,24 @@
+{
+    "data": [{
+            "fecha": "05/07/2021 21:53:00",
+            "ordenAtencion": "028415",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "medicamento": "CARBOPLATINO",
+            "cantidad": 2.00
+        },
+        {
+            "fecha": "05/07/2021 21:53:00",
+            "ordenAtencion": "028416",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "medicamento": "OXALIPLATINA",
+            "cantidad": 4.00
+        },
+        {
+            "fecha": "05/07/2021 21:53:00",
+            "ordenAtencion": "028417",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "medicamento": "ZOLODEX",
+            "cantidad": 234.00
+        }
+    ]
+}

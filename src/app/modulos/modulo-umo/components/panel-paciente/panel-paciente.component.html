@@ -1,0 +1,45 @@
+<p-card>
+    <div class="ui-g ui-fluid">
+        <form [formGroup]="formularioCabecera">
+            <div class="ui-g-12 ui-md-8">
+                <label class="label-custom">Tipo Documento: </label>
+                <input type="text" formControlName="tipoDocumento" pInputText placeholder="Tipo Documento">
+            </div>
+            <div class="ui-g-12 ui-md-4">
+                <label class="label-custom">Documento Identidad: </label>
+                <input type="text" formControlName="documentoIdentidad" pInputText placeholder="Documento Identidad">
+            </div>
+            <div class="ui-g-12 ui-md-4">
+                <label class="label-custom">Apellido Paterno: </label>
+                <input type="text" formControlName="apellidoPaterno" pInputText placeholder="Apellido Paterno">
+            </div>
+            <div class="ui-g-12 ui-md-4">
+                <label class="label-custom">Apellido Materno: </label>
+                <input type="text" formControlName="apellidoMaterno" pInputText placeholder="Apellido Materno">
+            </div>
+            <div class="ui-g-12 ui-md-4">
+                <label class="label-custom">Nombres: </label>
+                <input type="text" formControlName="nombres" pInputText placeholder="Nombres">
+            </div>
+            <div class="ui-g-12 ui-md-8">
+                <label class="label-custom">Diagnostico: </label>
+                <input type="text" formControlName="diagnostico" pInputText placeholder="Diagnostico">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Talla: </label>
+                <input type="text" formControlName="talla" pInputText placeholder="Talla">
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <label class="label-custom">Peso: </label>
+                <input type="text" formControlName="peso" pInputText placeholder="Peso">
+            </div>
+
+            <div class="ui-g-12 ui-md-6">
+                <button pButton type="button" label="{{globalConstants.cGrabar}}" icon="{{globalConstants.icoGrabar}}" class="sba-button btn btn-block"></button>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <button pButton type="button" label="{{globalConstants.cCancelar}}" icon="{{globalConstants.icoCancelar}}" class="sba-button btn btn-block ui-button-secondary"></button>
+            </div>
+        </form>
+    </div>
+</p-card>

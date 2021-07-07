@@ -1,0 +1,43 @@
+{
+    "data": [{
+            "estado": "PREPARADO",
+            "horaCita": "08:00",
+            "ordenAtencion": "028415",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "diagnostico": "CANCER DE MAMAS",
+            "medicoTratante": "SILVIA FALCON LIZARAZO"
+        },
+        {
+            "estado": "PREPARADO",
+            "horaCita": "08:40",
+            "ordenAtencion": "028416",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "diagnostico": "CANCER DE MAMAS",
+            "medicoTratante": "SILVIA FALCON LIZARAZO"
+        },
+        {
+            "estado": "INCOMPLETO",
+            "horaCita": "08:50",
+            "ordenAtencion": "028417",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "diagnostico": "",
+            "medicoTratante": ""
+        },
+        {
+            "estado": "PENDIENTE",
+            "horaCita": "08:00",
+            "ordenAtencion": "028418",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "diagnostico": "CANCER DE MAMAS",
+            "medicoTratante": "SILVIA FALCON LIZARAZO"
+        },
+        {
+            "estado": "ANULADO",
+            "horaCita": "08:00",
+            "ordenAtencion": "028419",
+            "paciente": "RAMIREZ SOTO MAYKI KEVIN HELI",
+            "diagnostico": "",
+            "medicoTratante": ""
+        }
+    ]
+}
