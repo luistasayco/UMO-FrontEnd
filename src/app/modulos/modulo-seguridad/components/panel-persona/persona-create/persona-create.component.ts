@@ -13,6 +13,7 @@ import { CifrarDataService } from '../../../../../services/cifrar-data.service';
 import { AccesoOpcionesService } from '../../../../../services/acceso-opciones.service';
 import { ConstantesVarios } from '../../../../../constants/constantes-varios';
 import { GlobalsConstants } from '../../../../../models/globals-constants.modelo';
+import { UtilsService } from '../../../../../services/utils.service';
 import swal from'sweetalert2';
 
 @Component({
@@ -49,7 +50,8 @@ export class PersonaCreateComponent implements OnInit, OnDestroy {
               private breadcrumbService: BreadcrumbService,
               public app: LayoutComponent,
               private cifrarDataService: CifrarDataService,
-              private accesoOpcionesService: AccesoOpcionesService) {
+              private accesoOpcionesService: AccesoOpcionesService,
+              private utilsService: UtilsService) {
                 this.breadcrumbService.setItems([
                     { label: 'Módulo Seguridad' },
                     { label: 'Usuario', routerLink: ['module-se/panel-persona'] },
@@ -166,6 +168,11 @@ export class PersonaCreateComponent implements OnInit, OnDestroy {
     this.modelo.entidadUsuario.themeDark = Boolean(this.modeloForm.controls['dark'].value);
     this.modelo.entidadUsuario.typeMenu = this.modeloForm.controls['menu'].value;
     this.modelo.entidadUsuario.themeColor = this.modeloForm.controls['theme'].value;
+
+    if (!this.utilsService.goValidarEmail(this.modelo.entidadUsuario.email)) {
+      swal.fire(this.globalConstants.msgErrorSummary, 'Email Incorrecto, Favor de validar' ,'error');
+      return;
+    }
     
     this.subscription = new Subscription();
     this.subscription = this.seguridadService.setInsertPersona(this.modelo)
