@@ -15,6 +15,7 @@ import { AprobarSubTipoExplotacionPorUsuarioModel } from '../../../models/aproba
 import { PlantaPorUsuarioModel } from '../../../models/planta-por-usuario';
 import { GlobalsConstants } from '../../../../../models/globals-constants.modelo';
 import { ConstantesVarios } from '../../../../../constants/constantes-varios';
+import { UtilsService } from '../../../../../services/utils.service';
 import swal from'sweetalert2';
 
 @Component({
@@ -53,7 +54,8 @@ export class PersonaUpdateComponent implements OnInit, OnDestroy {
               private breadcrumbService: BreadcrumbService,
               public app: LayoutComponent,
               private readonly route: ActivatedRoute,
-              private readonly cifrarDataService: CifrarDataService) {
+              private readonly cifrarDataService: CifrarDataService,
+              private utilsService: UtilsService) {
                 this.breadcrumbService.setItems([
                     { label: 'Módulo Seguridad' },
                     { label: 'Usuario', routerLink: ['modulo-se/panel-persona'] },
@@ -195,7 +197,12 @@ export class PersonaUpdateComponent implements OnInit, OnDestroy {
     this.modelo.entidadUsuario.themeDark = Boolean(this.modeloForm.controls['dark'].value);
     this.modelo.entidadUsuario.typeMenu = this.modeloForm.controls['menu'].value;
     this.modelo.entidadUsuario.themeColor = this.modeloForm.controls['theme'].value;
-    console.log(this.modelo);
+
+    if (!this.utilsService.goValidarEmail(this.modelo.entidadUsuario.email)) {
+      swal.fire(this.globalConstants.msgErrorSummary, 'Email Incorrecto, Favor de validar' ,'error');
+      return;
+    }
+
     this.subscription = new Subscription();
     this.subscription = this.seguridadService.setUpdatePersona(this.modelo)
     .subscribe(() =>  {

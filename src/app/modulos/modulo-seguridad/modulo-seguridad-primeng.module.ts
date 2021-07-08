@@ -21,6 +21,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { InputMaskModule } from 'primeng/inputmask';
 // Sevices
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
@@ -46,7 +47,8 @@ import { MessageService } from 'primeng/api';
             FileUploadModule,
             ToggleButtonModule,
             DialogModule,
-            ProgressBarModule],
+            ProgressBarModule,
+            InputMaskModule],
     providers: [MessageService, ConfirmationService],
 })
 export class SeguridadPrimeNgModule {}

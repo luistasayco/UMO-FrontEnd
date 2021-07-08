@@ -40,7 +40,8 @@
                         <label class="label-custom" for="float-input-documento">Nro Documento: </label>
                         <div class="ui-inputgroup">
                             <span class="ui-inputgroup-addon"><i class="fa fa-file"></i></span>
-                            <input id="float-input-documento" type="number" placeholder="Nro Documento" maxlength="20" formControlName="numeroDocumento" required pInputText>
+                            <!-- <input id="float-input-documento" type="number" placeholder="Nro Documento" maxlength="20" formControlName="numeroDocumento" required pInputText> -->
+                            <p-inputMask id="float-input-documento" mask="99999999" formControlName="numeroDocumento" placeholder="99999999" required></p-inputMask>
                         </div>
                         <div *ngIf="modeloForm.controls['numeroDocumento'].errors && modeloForm.controls['numeroDocumento'].dirty">
                             <p-message severity="error" text="Nro Documento es requerido" *ngIf="modeloForm.controls['numeroDocumento'].errors['required']"></p-message>
@@ -50,7 +51,8 @@
                         <label class="label-custom" for="float-input-telefono">Nro Telefono: </label>
                         <div class="ui-inputgroup">
                             <span class="ui-inputgroup-addon"><i class="fa fa-mobile"></i></span>
-                            <input id="float-input-telefono" type="number" placeholder="Nro Telefono" maxlength="20" formControlName="numeroTelefono" pInputText>
+                            <!-- <input id="float-input-telefono" type="number" placeholder="Nro Telefono" maxlength="20" formControlName="numeroTelefono" pInputText> -->
+                            <p-inputMask id="float-input-telefono" mask="999999999" formControlName="numeroTelefono" placeholder="999999999" required></p-inputMask>
                         </div>
                     </div>
                     <div class="ui-g-12 ui-md-4">

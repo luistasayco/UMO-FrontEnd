@@ -37,3 +37,7 @@
     @include label-estado();
     background: green;
 }
+
+.text-upper-case {
+    text-transform: uppercase !important;
+}
